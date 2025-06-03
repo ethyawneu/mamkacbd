@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBN: Honzíkův Průvodce Klidnějším Spánkem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4A5C90; /* Trochu hlubší a sytější modro-fialová */
+            --secondary-color: #6D83C4; /* Světlejší, ale stále bohatý odstín */
+            --accent-color: #FFB74D; /* Zářivější a teplejší zlatá/oranžová */
+            --background-color: #fdfdff; /* Téměř bílá s nádechem levandule */
+            --text-color: #2c3e50; /* Tmavší, dobře čitelná šedo-modrá */
+            --card-bg: #ffffff;
+            --border-radius: 12px; /* Mírně větší zaoblení */
+            --soft-shadow: 0 8px 25px rgba(74, 92, 144, 0.12); /* Jemnější, rozptýlenější stín */
+            --strong-shadow: 0 12px 35px rgba(74, 92, 144, 0.15);
+            --transition-speed: 0.3s;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.8; /* Větší řádkování pro lepší čitelnost */
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 920px; /* Mírně širší kontejner */
+            margin: 40px auto; /* Větší horní/dolní margin */
+            padding: 0 15px;
+        }
+
+        header {
+            background: linear-gradient(140deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 30px; /* Větší padding */
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin-bottom: 45px; /* Větší odstup */
+            box-shadow: var(--strong-shadow);
+            position: relative;
+            overflow: hidden; /* Pro případné dekorativní prvky */
+        }
+        /* Jemný dekorativní prvek v hlavičce */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            opacity: 0.5;
+            transform: rotate(45deg);
+        }
+        header h1 {
+            font-family: 'Lora', serif;
+            margin: 0;
+            font-size: 3em; /* Větší nadpis */
+            font-weight: 700; /* Silnější váha */
+            letter-spacing: 0.5px;
+        }
+        header p {
+            font-size: 1.25em; /* Větší podnadpis */
+            opacity: 0.9;
+            margin-top: 15px;
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.85); /* Lehce průsvitné pozadí */
+            backdrop-filter: blur(10px); /* Glassmorphism efekt */
+            -webkit-backdrop-filter: blur(10px);
+            padding: 15px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--soft-shadow);
+            position: sticky;
+            top: 15px; /* Větší odstup odshora */
+            z-index: 1000;
+            border: 1px solid rgba(200, 200, 220, 0.3); /* Jemný okraj pro glassmorphism */
+        }
+        nav a {
+            color: var(--primary-color);
+            margin: 0 12px; /* Menší margin pro více položek, pokud by bylo potřeba */
+            text-decoration: none;
+            font-weight: 700; /* Tučnější odkazy */
+            padding: 12px 18px; /* Větší padding odkazu */
+            border-radius: 8px;
+            transition: all var(--transition-speed) ease-in-out;
+            font-size: 1em;
+            position: relative;
+        }
+        nav a::after { /* Podtržení pro aktivní/hover stav */
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: var(--accent-color);
+            transition: width var(--transition-speed) ease;
+        }
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+        nav a:hover, nav a.active {
+            color: var(--secondary-color); /* Při hoveru se barva textu může změnit jemněji */
+            background-color: transparent; /* Odstranění pozadí, spoléháme na podtržení */
+        }
+
+        section {
+            background-color: var(--card-bg);
+            padding: 35px 40px; /* Větší padding v sekcích */
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--soft-shadow);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+        section:hover {
+            transform: translateY(-5px); /* Jemný zdvih při najetí myší */
+            box-shadow: var(--strong-shadow);
+        }
+
+        h2 {
+            font-family: 'Lora', serif;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color); /* Silnější podtržení */
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 30px; /* Větší odstup */
+            font-size: 2.3em; /* Větší nadpisy sekcí */
+            font-weight: 700;
+        }
+        h3 {
+            font-family: 'Nunito', sans-serif;
+            color: var(--secondary-color);
+            margin-top: 30px;
+            margin-bottom: 18px;
+            font-size: 1.7em; /* Větší podnadpisy */
+            font-weight: 700;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 5px; /* Mírný padding pro zarovnání s textem */
+        }
+        li {
+            margin-bottom: 15px; /* Větší odstup mezi položkami */
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.05em; /* Mírně větší písmo v seznamech */
+        }
+        li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            top: 4px; /* Upravená pozice */
+            color: var(--accent-color);
+            font-size: 1.3em; /* Větší ikonka */
+            transition: transform var(--transition-speed) ease;
+        }
+        li:hover::before {
+            transform: scale(1.2) rotate(15deg); /* Malá animace ikonky při hoveru */
+        }
+
+        .intro-box, .personal-tip {
+            border-left: 6px solid var(--accent-color); /* Silnější levý okraj */
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(var(--accent-color-rgb, 247, 190, 116), 0.15); /* Stín v barvě akcentu */
+        }
+        .intro-box {
+            background-color: #fffaf0; /* Teplejší pozadí */
+            border-left-color: var(--primary-color); /* Může být i primární barva */
+             box-shadow: 0 4px 15px rgba(93, 112, 166, 0.1);
+        }
+         .intro-box p, .personal-tip p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+        .personal-tip {
+            background-color: #fff8e1;
+            font-style: normal; /* Odebrání kurzívy, pokud se nehodí k celkovému stylu */
+            font-weight: 600;
+            color: #795548; /* Tmavší text pro lepší kontrast na žlutém pozadí */
+        }
+
+        .key-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); /* Mírně menší minmax pro 3 sloupce */
+            gap: 25px; /* Větší mezery */
+            margin-top: 25px;
+        }
+        .point-item {
+            background-color: var(--background-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border: 1px solid #e8eaf6; /* Jemnější okraj */
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            box-shadow: var(--soft-shadow);
+        }
+        .point-item:hover {
+            transform: translateY(-8px) scale(1.02); /* Výraznější hover efekt */
+            box-shadow: var(--strong-shadow);
+        }
+        .point-item h4 {
+            font-family: 'Nunito', sans-serif;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.35em;
+            font-weight: 800; /* Extra tučné pro důraz */
+        }
+        .point-item h4 svg, .point-item h4 span[role="img"] { /* Styl pro emoji/ikony v nadpisu */
+            margin-right: 10px;
+            color: var(--accent-color);
+            font-size: 1.2em;
+        }
+
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 35px 0;
+            border-top: 1px solid #e0e5f0;
+            font-size: 1em;
+            color: #7f8c9b; /* Měkčí, světlejší šedá */
+        }
+        footer p { margin: 8px 0; }
+
+        /* Responzivita */
+        @media (max-width: 960px) { /* Úpravy pro tablety */
+            header h1 { font-size: 2.6em; }
+            header p { font-size: 1.15em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.5em; }
+            nav a { margin: 0 8px; padding: 10px 12px;}
+        }
+
+        @media (max-width: 768px) {
+            body { font-size: 16px; }
+            .container { margin: 20px auto; }
+            header { padding: 45px 20px; margin-bottom: 30px; }
+            header h1 { font-size: 2.2em; }
+            header p { font-size: 1.1em; }
+            nav { position: static; background-color: var(--card-bg); backdrop-filter: none; } /* Odebrání glassmorphismu na mobilu pro výkon */
+            section { padding: 25px 20px; }
+            section:hover { transform: none; box-shadow: var(--soft-shadow); } /* Odebrání hover efektu na dotykových zařízeních */
+            .point-item:hover { transform: none; box-shadow: var(--soft-shadow); }
+            h2 { font-size: 1.9em; }
+            h3 { font-size: 1.4em; }
+        }
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.9em; }
+            header p { font-size: 1em; }
+            nav { display: flex; flex-direction: column; gap: 5px; padding: 10px; }
+            nav a { display: block; width: calc(100% - 24px); margin: 5px auto; } /* Úprava odkazů pro mobil */
+            nav a::after { display: none; } /* Schování podtržení na mobilu v menu */
+            nav a:hover, nav a.active { background-color: var(--secondary-color); color: white; } /* Vracíme pozadí pro mobilní menu */
+            .key-points-grid { grid-template-columns: 1fr; } /* Jeden sloupec na mobilu */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CBN: Honzíkův Průvodce Klidnějším Spánkem</h1>
+        <p>Pojďme se společně podívat, jak Ti kanabinol (CBN) může pomoci najít cestu k lepšímu odpočinku.</p>
+    </header>
+
+    <div class="container">
+        <nav id="navbar">
+            <a href="#co-je-cbn" class="active">Co je CBN?</a>
+            <a href="#jak-funguje">Jak funguje?</a>
+            <a href="#uzivani-a-davky">Užívání a dávky</a>
+            <a href="#vyhody-a-tipy">Výhody a tipy</a>
+            <a href="#vyber-produktu">Výběr produktu</a>
+        </nav>
+
+        <section id="co-je-cbn">
+            <h2>Co je to vlastně ten Kanabinol (CBN)?</h2>
+            <p>Možná jsi o něm už slyšela, možná je to pro Tebe novinka. Kanabinol, zkráceně CBN, je jednou z mnoha zajímavých látek, které najdeme v rostlině konopí. Není tak známý jako jeho "kolegové" THC nebo CBD, ale rozhodně má co nabídnout, zvlášť pokud jde o relaxaci a spánek.</p>
+            <p>Zajímavé je, že CBN vzniká hlavně tím, jak THC (to je ta látka, co má psychoaktivní účinky) postupně stárne a mění se. Takže starší konopí mívá více CBN. Důležité je, že CBN samo o sobě nemá ty silné omamné účinky jako THC, je mnohem jemnější.</p>
+            <div class="intro-box">
+                <p><strong>Stručně řečeno:</strong> CBN je přírodní složka konopí, která si získává pozornost pro svůj potenciál podpořit klid a kvalitní spánek, aniž by způsobovala výrazné změny vnímání.</p>
+            </div>
+        </section>
+
+        <section id="jak-funguje">
+            <h2>Jak CBN působí na naše tělo a spánek?</h2>
+            <p>Vědci stále zkoumají všechny detaily, ale už teď víme, že CBN umí v těle pár šikovných věcí, které mohou vést k lepšímu spánku:</p>
+            <ul>
+                <li><strong>Komunikuje s naším vnitřním systémem:</strong> V těle máme takzvaný endokanabinoidní systém, který pomáhá udržovat rovnováhu v mnoha procesech, včetně spánku. CBN s tímto systémem spolupracuje.</li>
+                <li><strong>Může mít uklidňující efekt:</strong> Mnoho lidí popisuje, že jim CBN pomáhá zklidnit mysl i tělo, což je skvělý předpoklad pro usnutí.</li>
+                <li><strong>Podpora při usínání:</strong> Některé studie a zkušenosti naznačují, že CBN může zkrátit dobu potřebnou k usnutí a podpořit hlubší spánek.</li>
+                <li><strong>Spolupráce s dalšími látkami:</strong> Účinek CBN může být ještě zajímavější v kombinaci s dalšími látkami z konopí, jako jsou jiné kanabinoidy (např. CBD) nebo terpeny (aromatické složky). Tomu se říká "entourage effect" – společně jsou silnější.</li>
+            </ul>
+            <p>Pamatuj, že každý jsme unikátní a reakce může být individuální. Co pomůže jednomu, nemusí být úplně stejné pro druhého, ale potenciál CBN je určitě slibný.</p>
+        </section>
+
+        <section id="uzivani-a-davky">
+            <h2>Jak CBN užívat a jak najít správnou dávku?</h2>
+            <p>CBN je dostupné v různých formách, takže si můžeš vybrat tu, která Ti bude nejvíce vyhovovat.</p>
+            
+            <h3>Nejčastější formy:</h3>
+            <div class="key-points-grid">
+                <div class="point-item">
+                    <h4><span role="img" aria-label="Kapky">💧</span> Oleje a kapičky</h4>
+                    <p>Asi nejpopulárnější. Kapou se pod jazyk, kde se rychle vstřebávají. Účinek obvykle nastupuje do 15-45 minut. Dávkování si můžeš snadno upravit.</p>
+                </div>
+                <div class="point-item">
+                    <h4><span role="img" aria-label="Pilulka">💊</span> Kapsle a tablety</h4>
+                    <p>Praktické pro přesné dávkování. Spolknou se a zapijí. Nástup účinku je pomalejší (30-90 minut), protože musí projít trávením.</p>
+                </div>
+                <div class="point-item">
+                    <h4><span role="img" aria-label="Bonbón">🍬</span> Edibles (bonbony, čokolády)</h4>
+                    <p>Chutná alternativa s podobným nástupem účinku jako kapsle. Dávka je také předem daná.</p>
+                </div>
+            </div>
+
+            <h3>Jak na dávkování?</h3>
+            <p>Tady platí zlaté pravidlo: <strong>"Začni pomalu a postupně."</strong> Neexistuje jedna univerzální dávka pro všechny.</p>
+            <ul>
+                <li>Začni s opravdu malým množstvím (např. 2,5 mg až 5 mg CBN). Na obalu produktu by mělo být uvedeno, kolik CBN obsahuje jedna kapka nebo kapsle.</li>
+                <li>Pozoruj, jak se cítíš. Pokud je účinek slabý, můžeš příště zkusit dávku mírně navýšit.</li>
+                <li>Ideální je užívat CBN zhruba <strong>30 až 90 minut před spaním</strong>.</li>
+            </ul>
+            <div class="personal-tip">
+                <p>Někdy méně znamená více. Není cílem se "utlumit", ale jemně podpořit přirozený proces usínání a spánku. Naslouchej svému tělu.</p>
+            </div>
+        </section>
+
+        <section id="vyhody-a-tipy">
+            <h2>Co Ti CBN může přinést a pár tipů navíc</h2>
+            <p>CBN si získává oblibu z dobrých důvodů. Pojďme se podívat na některé z jeho potenciálních přínosů a na co si dát pozor.</p>
+
+            <h3>Možné pozitivní účinky:</h3>
+            <ul>
+                <li>Podpora klidnějšího usínání a hlubšího spánku.</li>
+                <li>Pomoc při uvolnění a snížení pocitu napětí před spaním.</li>
+                <li>Je to přírodní alternativa, která není primárně psychoaktivní.</li>
+                <li>Může přispět k celkové relaxaci.</li>
+            </ul>
+
+            <h3>Na co je dobré myslet:</h3>
+            <ul>
+                <li><strong>Ospalost:</strong> To je u přípravku na spaní vlastně cíl, ale je s tím třeba počítat, zvlášť pokud bys ho užila přes den nebo ve větší dávce.</li>
+                <li><strong>Sucho v ústech:</strong> Může se objevit, tak měj po ruce sklenici vody.</li>
+                <li><strong>Interakce s léky:</strong> Pokud užíváš nějaké léky pravidelně, je vždy dobré se poradit s lékařem nebo lékárníkem, než začneš s CBN. Je to důležité, protože kanabinoidy mohou ovlivnit, jak některé léky v těle fungují.</li>
+                <li><strong>Kvalita produktu:</strong> Vybírej pečlivě, o tom si povíme více níže.</li>
+            </ul>
+        </section>
+
+        <section id="vyber-produktu">
+            <h2>Jak vybrat kvalitní CBN produkt?</h2>
+            <p>Kvalita je klíčová. Na trhu je spousta produktů, a tak je dobré vědět, na co se zaměřit:</p>
+            <ul>
+                <li><strong>Hledej certifikáty (CoA):</strong> Seriózní výrobci nechávají své produkty testovat v nezávislých laboratořích. Tento "Certifikát o analýze" Ti řekne, kolik CBN (a případně dalších látek) produkt obsahuje a zda je bez škodlivin (jako jsou těžké kovy nebo pesticidy).</li>
+                <li><strong>Původ konopí:</strong> Ideální je konopí pěstované ekologicky, bez zbytečné chemie.</li>
+                <li><strong>Metoda extrakce:</strong> CO2 extrakce je považována za šetrnou a čistou metodu.</li>
+                <li><strong>Jasné složení:</strong> Měla bys přesně vědět, co produkt obsahuje, včetně nosného oleje (např. MCT, konopný).</li>
+                <li><strong>Recenze a pověst značky:</strong> Zkušenosti ostatních a důvěryhodnost výrobce mohou hodně napovědět.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Přeji Ti mnoho klidných nocí a sladkých snů! ✨</p>
+            <p>&copy; S láskou pro Tvůj spánek, od Honzíka</p>
+        </footer>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            const navbar = document.getElementById('navbar');
+            if (!navbar) return; 
+            const navbarHeight = navbar.offsetHeight;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navbarHeight - 60; 
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            let anyLinkActive = false;
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                    anyLinkActive = true;
+                }
+            });
+            
+            if (!anyLinkActive && navLinks.length > 0) {
+                 // Pokud není žádná sekce přesně v "targetu", ale jsme někde na stránce,
+                 // můžeme zkusit nechat aktivní první odkaz, pokud jsme úplně nahoře,
+                 // nebo poslední aktivní, pokud by se detekce minula.
+                 // Pro jednoduchost, pokud nic není aktivní a nejsme úplně nahoře, můžeme nechat default.
+                 // Pokud jsme úplně nahoře (pageYOffset blízko 0), aktivujeme první.
+                if (pageYOffset < navbarHeight) { // Heuristika pro horní část stránky
+                    navLinks[0].classList.add('active');
+                }
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('nav a');
+            if (navLinks.length > 0) {
+                // Inicializace: první odkaz aktivní nebo podle aktuální pozice
+                let current = '';
+                const sections = document.querySelectorAll('section');
+                const navbar = document.getElementById('navbar');
+                if (!navbar) return;
+                const navbarHeight = navbar.offsetHeight;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - navbarHeight - 60; 
+                    if (pageYOffset >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                let initialActiveSet = false;
+                if (current) {
+                     navLinks.forEach(link => {
+                        if (link.getAttribute('href').substring(1) === current) {
+                            link.classList.add('active');
+                            initialActiveSet = true;
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+                
+                if (!initialActiveSet) {
+                    navLinks[0].classList.add('active');
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
