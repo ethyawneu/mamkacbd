@@ -99,16 +99,16 @@
         }
         nav a {
             color: var(--primary-color);
-            margin: 0 12px; /* Menší margin pro více položek, pokud by bylo potřeba */
+            margin: 0 8px; 
             text-decoration: none;
-            font-weight: 700; /* Tučnější odkazy */
-            padding: 12px 18px; /* Větší padding odkazu */
+            font-weight: 700; 
+            padding: 12px 15px; 
             border-radius: 8px;
             transition: all var(--transition-speed) ease-in-out;
-            font-size: 1em;
+            font-size: 0.95em; /* Slightly smaller font for more items */
             position: relative;
         }
-        nav a::after { /* Podtržení pro aktivní/hover stav */
+        nav a::after { 
             content: '';
             position: absolute;
             width: 0;
@@ -125,31 +125,31 @@
             right: auto;
         }
         nav a:hover, nav a.active {
-            color: var(--secondary-color); /* Při hoveru se barva textu může změnit jemněji */
-            background-color: transparent; /* Odstranění pozadí, spoléháme na podtržení */
+            color: var(--secondary-color); 
+            background-color: transparent; 
         }
 
         section {
             background-color: var(--card-bg);
-            padding: 35px 40px; /* Větší padding v sekcích */
+            padding: 35px 40px; 
             margin-bottom: 30px;
             border-radius: var(--border-radius);
             box-shadow: var(--soft-shadow);
             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
         }
         section:hover {
-            transform: translateY(-5px); /* Jemný zdvih při najetí myší */
+            transform: translateY(-5px); 
             box-shadow: var(--strong-shadow);
         }
 
         h2 {
             font-family: 'Lora', serif;
             color: var(--primary-color);
-            border-bottom: 3px solid var(--accent-color); /* Silnější podtržení */
+            border-bottom: 3px solid var(--accent-color); 
             padding-bottom: 15px;
             margin-top: 0;
-            margin-bottom: 30px; /* Větší odstup */
-            font-size: 2.3em; /* Větší nadpisy sekcí */
+            margin-bottom: 30px; 
+            font-size: 2.3em; 
             font-weight: 700;
         }
         h3 {
@@ -157,43 +157,43 @@
             color: var(--secondary-color);
             margin-top: 30px;
             margin-bottom: 18px;
-            font-size: 1.7em; /* Větší podnadpisy */
+            font-size: 1.7em; 
             font-weight: 700;
         }
 
         ul {
             list-style-type: none;
-            padding-left: 5px; /* Mírný padding pro zarovnání s textem */
+            padding-left: 5px; 
         }
         li {
-            margin-bottom: 15px; /* Větší odstup mezi položkami */
+            margin-bottom: 15px; 
             padding-left: 35px;
             position: relative;
-            font-size: 1.05em; /* Mírně větší písmo v seznamech */
+            font-size: 1.05em; 
         }
         li::before {
             content: '✨';
             position: absolute;
             left: 0;
-            top: 4px; /* Upravená pozice */
+            top: 4px; 
             color: var(--accent-color);
-            font-size: 1.3em; /* Větší ikonka */
+            font-size: 1.3em; 
             transition: transform var(--transition-speed) ease;
         }
         li:hover::before {
-            transform: scale(1.2) rotate(15deg); /* Malá animace ikonky při hoveru */
+            transform: scale(1.2) rotate(15deg); 
         }
 
         .intro-box, .personal-tip {
-            border-left: 6px solid var(--accent-color); /* Silnější levý okraj */
+            border-left: 6px solid var(--accent-color); 
             padding: 25px 30px;
             margin: 30px 0;
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 15px rgba(var(--accent-color-rgb, 247, 190, 116), 0.15); /* Stín v barvě akcentu */
+            box-shadow: 0 4px 15px rgba(var(--accent-color-rgb, 247, 190, 116), 0.15); 
         }
         .intro-box {
-            background-color: #fffaf0; /* Teplejší pozadí */
-            border-left-color: var(--primary-color); /* Může být i primární barva */
+            background-color: #fffaf0; 
+            border-left-color: var(--primary-color); 
              box-shadow: 0 4px 15px rgba(93, 112, 166, 0.1);
         }
          .intro-box p, .personal-tip p {
@@ -202,27 +202,27 @@
         }
         .personal-tip {
             background-color: #fff8e1;
-            font-style: normal; /* Odebrání kurzívy, pokud se nehodí k celkovému stylu */
+            font-style: normal; 
             font-weight: 600;
-            color: #795548; /* Tmavší text pro lepší kontrast na žlutém pozadí */
+            color: #795548; 
         }
 
         .key-points-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); /* Mírně menší minmax pro 3 sloupce */
-            gap: 25px; /* Větší mezery */
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); 
+            gap: 25px; 
             margin-top: 25px;
         }
         .point-item {
             background-color: var(--background-color);
             padding: 25px;
             border-radius: var(--border-radius);
-            border: 1px solid #e8eaf6; /* Jemnější okraj */
+            border: 1px solid #e8eaf6; 
             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
             box-shadow: var(--soft-shadow);
         }
         .point-item:hover {
-            transform: translateY(-8px) scale(1.02); /* Výraznější hover efekt */
+            transform: translateY(-8px) scale(1.02); 
             box-shadow: var(--strong-shadow);
         }
         .point-item h4 {
@@ -231,12 +231,26 @@
             margin-top: 0;
             margin-bottom: 12px;
             font-size: 1.35em;
-            font-weight: 800; /* Extra tučné pro důraz */
+            font-weight: 800; 
         }
-        .point-item h4 svg, .point-item h4 span[role="img"] { /* Styl pro emoji/ikony v nadpisu */
+        .point-item h4 svg, .point-item h4 span[role="img"] { 
             margin-right: 10px;
             color: var(--accent-color);
             font-size: 1.2em;
+        }
+        .supplement-card {
+            background-color: #f9f9ff;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--soft-shadow);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--secondary-color);
+        }
+        .supplement-card h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
         }
 
 
@@ -246,17 +260,17 @@
             padding: 35px 0;
             border-top: 1px solid #e0e5f0;
             font-size: 1em;
-            color: #7f8c9b; /* Měkčí, světlejší šedá */
+            color: #7f8c9b; 
         }
         footer p { margin: 8px 0; }
 
         /* Responzivita */
-        @media (max-width: 960px) { /* Úpravy pro tablety */
+        @media (max-width: 960px) { 
             header h1 { font-size: 2.6em; }
             header p { font-size: 1.15em; }
             h2 { font-size: 2em; }
             h3 { font-size: 1.5em; }
-            nav a { margin: 0 8px; padding: 10px 12px;}
+            nav a { margin: 0 5px; padding: 10px 10px; font-size: 0.9em;}
         }
 
         @media (max-width: 768px) {
@@ -265,9 +279,10 @@
             header { padding: 45px 20px; margin-bottom: 30px; }
             header h1 { font-size: 2.2em; }
             header p { font-size: 1.1em; }
-            nav { position: static; background-color: var(--card-bg); backdrop-filter: none; } /* Odebrání glassmorphismu na mobilu pro výkon */
+            nav { position: static; background-color: var(--card-bg); backdrop-filter: none; } 
+            nav a {font-size: 1em;}
             section { padding: 25px 20px; }
-            section:hover { transform: none; box-shadow: var(--soft-shadow); } /* Odebrání hover efektu na dotykových zařízeních */
+            section:hover { transform: none; box-shadow: var(--soft-shadow); } 
             .point-item:hover { transform: none; box-shadow: var(--soft-shadow); }
             h2 { font-size: 1.9em; }
             h3 { font-size: 1.4em; }
@@ -276,10 +291,10 @@
             header h1 { font-size: 1.9em; }
             header p { font-size: 1em; }
             nav { display: flex; flex-direction: column; gap: 5px; padding: 10px; }
-            nav a { display: block; width: calc(100% - 24px); margin: 5px auto; } /* Úprava odkazů pro mobil */
-            nav a::after { display: none; } /* Schování podtržení na mobilu v menu */
-            nav a:hover, nav a.active { background-color: var(--secondary-color); color: white; } /* Vracíme pozadí pro mobilní menu */
-            .key-points-grid { grid-template-columns: 1fr; } /* Jeden sloupec na mobilu */
+            nav a { display: block; width: calc(100% - 24px); margin: 5px auto; } 
+            nav a::after { display: none; } 
+            nav a:hover, nav a.active { background-color: var(--secondary-color); color: white; } 
+            .key-points-grid { grid-template-columns: 1fr; } 
         }
     </style>
 </head>
@@ -293,15 +308,19 @@
         <nav id="navbar">
             <a href="#co-je-cbn" class="active">Co je CBN?</a>
             <a href="#jak-funguje">Jak funguje?</a>
-            <a href="#uzivani-a-davky">Užívání a dávky</a>
-            <a href="#vyhody-a-tipy">Výhody a tipy</a>
-            <a href="#vyber-produktu">Výběr produktu</a>
+            <a href="#scientific-evidence">Co říká věda? 🔬</a>
+            <a href="#uzivani-a-davky">Užívání a dávky 🌿</a>
+            <a href="#anecdotal-evidence">Zkušenosti ostatních 💬</a>
+            <a href="#recommended-supplements">Kde CBN hledat? 🛒</a>
+            <a href="#vyhody-a-tipy">Výhody a tipy 🌟</a>
+            <a href="#vyber-produktu">Výběr produktu ✅</a>
+            <a href="#legality-cz">Je to legální? 📜</a>
         </nav>
 
         <section id="co-je-cbn">
             <h2>Co je to vlastně ten Kanabinol (CBN)?</h2>
             <p>Možná jsi o něm už slyšela, možná je to pro Tebe novinka. Kanabinol, zkráceně CBN, je jednou z mnoha zajímavých látek, které najdeme v rostlině konopí. Není tak známý jako jeho "kolegové" THC nebo CBD, ale rozhodně má co nabídnout, zvlášť pokud jde o relaxaci a spánek.</p>
-            <p>Zajímavé je, že CBN vzniká hlavně tím, jak THC (to je ta látka, co má psychoaktivní účinky) postupně stárne a mění se. Takže starší konopí mívá více CBN. Důležité je, že CBN samo o sobě nemá ty silné omamné účinky jako THC, je mnohem jemnější.</p>
+            <p>Zajímavé je, že CBN vzniká hlavně tím, jak THC (to je ta látka, co má psychoaktivní účinky) postupně stárne a mění se. Takže starší konopí mívá více CBN. Důležité je, že CBN samo o sobě nemá ty silné omamné účinky jako THC, je mnohem jemnější (uvádí se asi 10% psychoaktivity THC).</p>
             <div class="intro-box">
                 <p><strong>Stručně řečeno:</strong> CBN je přírodní složka konopí, která si získává pozornost pro svůj potenciál podpořit klid a kvalitní spánek, aniž by způsobovala výrazné změny vnímání.</p>
             </div>
@@ -311,77 +330,171 @@
             <h2>Jak CBN působí na naše tělo a spánek?</h2>
             <p>Vědci stále zkoumají všechny detaily, ale už teď víme, že CBN umí v těle pár šikovných věcí, které mohou vést k lepšímu spánku:</p>
             <ul>
-                <li><strong>Komunikuje s naším vnitřním systémem:</strong> V těle máme takzvaný endokanabinoidní systém, který pomáhá udržovat rovnováhu v mnoha procesech, včetně spánku. CBN s tímto systémem spolupracuje.</li>
+                <li><strong>Komunikuje s naším vnitřním systémem:</strong> V těle máme takzvaný endokanabinoidní systém, který pomáhá udržovat rovnováhu v mnoha procesech, včetně spánku. CBN s tímto systémem spolupracuje, i když na receptory CB1 působí slabě.</li>
                 <li><strong>Může mít uklidňující efekt:</strong> Mnoho lidí popisuje, že jim CBN pomáhá zklidnit mysl i tělo, což je skvělý předpoklad pro usnutí.</li>
-                <li><strong>Podpora při usínání:</strong> Některé studie a zkušenosti naznačují, že CBN může zkrátit dobu potřebnou k usnutí a podpořit hlubší spánek.</li>
+                <li><strong>Podpora při usínání a průběhu spánku:</strong> Některé studie a zkušenosti naznačují, že CBN může pomoci zlepšit celkový průběh spánku, například omezit časté probouzení.</li>
                 <li><strong>Spolupráce s dalšími látkami:</strong> Účinek CBN může být ještě zajímavější v kombinaci s dalšími látkami z konopí, jako jsou jiné kanabinoidy (např. CBD) nebo terpeny (aromatické složky). Tomu se říká "entourage effect" – společně jsou silnější.</li>
             </ul>
             <p>Pamatuj, že každý jsme unikátní a reakce může být individuální. Co pomůže jednomu, nemusí být úplně stejné pro druhého, ale potenciál CBN je určitě slibný.</p>
         </section>
 
+        <section id="scientific-evidence">
+            <h2>Co říká věda o CBN a spánku? 🔬</h2>
+            <p>Donedávna chyběly rozsáhlejší důkazy o vlivu CBN na spánek u lidí, ale situace se pomalu mění a přicházejí první zajímavé výsledky.</p>
+            
+            <h3>Klinické studie (výzkum na lidech):</h3>
+            <ul>
+                <li><strong>Méně probouzení v noci:</strong> Studie z let 2022-2023 na téměř 300 dospělých s nekvalitním spánkem ukázala, že 20 mg CBN večer významně snížilo počet nočních probuzení a celkovou míru narušeného spánku ve srovnání s placebem. Důležité je, že CBN neovlivnilo délku usínání ani nevyvolalo ospalost následující den.</li>
+                <li><strong>Srovnatelné s melatoninem ve vyšších dávkách:</strong> Novější klinická studie testovala CBN ve vyšších dávkách (25 mg, 50 mg a 100 mg) a porovnávala ho s placebem a 4 mg melatoninu. Všechny dávky CBN zlepšovaly kvalitu spánku významně více než placebo a srovnatelně jako melatonin. Skupina užívající 100 mg CBN dokonce zaznamenala větší pokles stresu.</li>
+                <li><strong>Kombinace s CBD:</strong> Ve zmíněné studii s 20 mg CBN se ukázalo, že přidání CBD k CBN nepřineslo další významné zlepšení spánku oproti samotnému CBN.</li>
+            </ul>
+
+            <h3>Preklinické studie (výzkum na zvířatech):</h3>
+            <p>Výzkum na zvířatech nám dává nahlédnout do mechanismů účinku:</p>
+            <ul>
+                <li><strong>Prodloužení spánku:</strong> Studie na potkanech potvrdila, že CBN prodlužuje celkovou dobu spánku. Zvýšil jak hluboký non-REM spánek, tak i REM fázi.</li>
+                <li><strong>Role metabolitu:</strong> Zajímavým zjištěním bylo, že po podání CBN se v mozku potkanů objevil metabolit 11-hydroxy-CBN, který silně aktivuje kanabinoidní receptory CB1 (podobně jako THC), zatímco samotný CBN má na tyto receptory jen slabý účinek. To naznačuje, že sedativní účinky CBN mohou být zprostředkovány právě tímto metabolitem.</li>
+            </ul>
+            <div class="personal-tip">
+                <p>Vědecké poznatky jsou povzbudivé, ale další výzkum, zejména na lidech, je stále potřeba k plnému pochopení všech účinků a optimálního využití CBN.</p>
+            </div>
+        </section>
+
         <section id="uzivani-a-davky">
-            <h2>Jak CBN užívat a jak najít správnou dávku?</h2>
+            <h2>Jak CBN užívat a jak najít správnou dávku? 🌿</h2>
             <p>CBN je dostupné v různých formách, takže si můžeš vybrat tu, která Ti bude nejvíce vyhovovat.</p>
             
             <h3>Nejčastější formy:</h3>
             <div class="key-points-grid">
                 <div class="point-item">
                     <h4><span role="img" aria-label="Kapky">💧</span> Oleje a kapičky</h4>
-                    <p>Asi nejpopulárnější. Kapou se pod jazyk, kde se rychle vstřebávají. Účinek obvykle nastupuje do 15-45 minut. Dávkování si můžeš snadno upravit.</p>
+                    <p>Asi nejpopulárnější. Kapou se pod jazyk, kde se rychleji vstřebávají. Účinek obvykle nastupuje do 15-60 minut. Dávkování si můžeš snadno upravit.</p>
                 </div>
                 <div class="point-item">
                     <h4><span role="img" aria-label="Pilulka">💊</span> Kapsle a tablety</h4>
-                    <p>Praktické pro přesné dávkování. Spolknou se a zapijí. Nástup účinku je pomalejší (30-90 minut), protože musí projít trávením.</p>
+                    <p>Praktické pro přesné dávkování. Spolknou se a zapijí. Nástup účinku je pomalejší (30-90 minut, i déle), protože musí projít trávením.</p>
                 </div>
                 <div class="point-item">
-                    <h4><span role="img" aria-label="Bonbón">🍬</span> Edibles (bonbony, čokolády)</h4>
-                    <p>Chutná alternativa s podobným nástupem účinku jako kapsle. Dávka je také předem daná.</p>
+                    <h4><span role="img" aria-label="Bonbón">🍬</span> Edibles (bonbony, želé)</h4>
+                    <p>Chutná alternativa s podobným nástupem účinku jako kapsle. Dávka je také předem daná. Účinek může být delší.</p>
                 </div>
             </div>
 
             <h3>Jak na dávkování?</h3>
-            <p>Tady platí zlaté pravidlo: <strong>"Začni pomalu a postupně."</strong> Neexistuje jedna univerzální dávka pro všechny.</p>
+            <p>Tady platí zlaté pravidlo: <strong>"Začni pomalu a postupně."</strong> Neexistuje jedna univerzální dávka pro všechny. Každý jsme jiný.</p>
             <ul>
-                <li>Začni s opravdu malým množstvím (např. 2,5 mg až 5 mg CBN). Na obalu produktu by mělo být uvedeno, kolik CBN obsahuje jedna kapka nebo kapsle.</li>
-                <li>Pozoruj, jak se cítíš. Pokud je účinek slabý, můžeš příště zkusit dávku mírně navýšit.</li>
-                <li>Ideální je užívat CBN zhruba <strong>30 až 90 minut před spaním</strong>.</li>
+                <li><strong>Začni s nízkou dávkou:</strong> Většina výrobců a studií doporučuje začít s nižší dávkou, například 2,5 mg až 5 mg CBN večer, a dle potřeby ji postupně zvyšovat. Některé studie ukazují účinky při 20 mg a více.</li>
+                <li><strong>Sleduj etiketu:</strong> Na obalu produktu by mělo být uvedeno, kolik CBN obsahuje jedna kapka, kapsle nebo bonbon. Například u 5% CBN oleje může jedna kapka obsahovat cca 2 mg CBN.</li>
+                <li><strong>Načasování:</strong> Ideální je užívat CBN zhruba <strong>30 až 90 minut před spaním</strong>.</li>
+                <li><strong>Pozoruj reakci:</strong> Všímej si, jak se cítíš. Pokud je účinek slabý, můžeš příště zkusit dávku mírně navýšit. Pokud pocítíš nežádoucí účinky, dávku sniž.</li>
+                <li><strong>Večerní rituál:</strong> CBN užívej zásadně večer před spaním, protože může způsobit únavu.</li>
             </ul>
             <div class="personal-tip">
-                <p>Někdy méně znamená více. Není cílem se "utlumit", ale jemně podpořit přirozený proces usínání a spánku. Naslouchej svému tělu.</p>
+                <p>Někdy méně znamená více. Cílem není se "utlumit", ale jemně podpořit přirozený proces usínání a spánku. Naslouchej svému tělu a buď trpělivá, než najdeš svůj ideální režim.</p>
+            </div>
+        </section>
+
+        <section id="anecdotal-evidence">
+            <h2>Co říkají ostatní uživatelé? Jejich zkušenosti 💬</h2>
+            <p>Zkušenosti lidí, kteří CBN vyzkoušeli, jsou často pozitivní, i když se individuálně liší. Tady je pár postřehů z diskuzí a recenzí:</p>
+            <ul>
+                <li><strong>Snazší usínání a klidnější noc:</strong> Mnoho uživatelů hlásí, že se po CBN cítí uvolnění a snadněji usnou. Popisují klidnější průběh noci, méně probouzení. Často zmiňují, že jim pomáhá zklidnit "přemýšlecí" mysl.</li>
+                <li><strong>Kombinace fungují:</strong> Někteří uvádějí, že nejlepší efekt pozorují při kombinaci CBN s CBD, případně s dalšími bylinkami nebo melatoninem.</li>
+                <li><strong>Různá účinnost a možná tolerance:</strong> Ne všichni zaznamenají výrazný účinek, nebo může být potřeba najít správnou dávku a produkt. Objevují se i zmínky, že při každodenním dlouhodobém užívání si tělo může na CBN zvyknout a účinek zeslábne (vznik tolerance).</li>
+                <li><strong>Není to "prášek na spaní":</strong> Uživatelé často zdůrazňují, že CBN není jako silné léky na spaní (hypnotika typu zolpidem). Nástup je mírnější, plynulejší. Spíše navodí pocit ospalosti přirozenou cestou – uklidní a uvolní.</li>
+                <li><strong>Bez "kocoviny":</strong> Výhodou, kterou mnozí oceňují, je absence ranní omámenosti nebo "kocoviny", která může provázet některé léky na spaní.</li>
+            </ul>
+            <div class="intro-box">
+                <p><strong>Celkově vzato:</strong> Zkušenosti naznačují, že CBN může být pro mnoho lidí jemným, přírodním pomocníkem pro lepší spánek, zejména pokud hledají zklidnění a relaxaci před ulehnutím. Je ale dobré přistupovat k tomu s očekáváním, že účinky jsou individuální.</p>
+            </div>
+        </section>
+
+        <section id="recommended-supplements">
+            <h2>Kde CBN hledat a jaké jsou tipy na produkty? 🛒</h2>
+            <p>Na trhu, včetně českého, je už k dispozici řada doplňků s CBN. Často se kombinuje s CBD nebo bylinami pro zesílení účinku. Tady je pár příkladů, abys měla představu (nejedná se o konkrétní doporučení, vždy si udělej vlastní průzkum):</p>
+
+            <div class="supplement-card">
+                <h4>💧 Oleje (tinktury)</h4>
+                <p>Často kombinace CBN a CBD. Například:</p>
+                <ul>
+                    <li><strong>CANNOR "Dobré spaní":</strong> Nabízí oleje s různými koncentracemi, typicky 5% CBN + 5% CBD, ale i silnější (10% či 20% CBN). Jsou to full-spectrum oleje, takže obsahují i další kanabinoidy a terpeny.</li>
+                    <li><strong>Cibdol "Complete Sleep":</strong> Olej s 5% CBN a 2,5% CBD, obohacený o bylinné extrakty z heřmánku a levandule, bez melatoninu.</li>
+                    <li><strong>CBDčko Broad Spectrum olej 40%:</strong> Vysoce koncentrovaný olej, např. 20% CBN + 20% CBD, pro ty, kdo potřebují silnější podporu.</li>
+                    <li><strong>Califarms Cherry CBD/CBN olej:</strong> Příklad ochuceného oleje, často ve větším balení (např. 30 ml) s kombinací CBD a CBN.</li>
+                </ul>
+            </div>
+
+            <div class="supplement-card">
+                <h4>🍬 Gummies (želé bonbony)</h4>
+                <p>Pohodlná a chutná forma s přesně danou dávkou CBN v jednom kousku. Například:</p>
+                <ul>
+                    <li><strong>CBDčko CBN Gummies:</strong> Nabízí želé bonbony s obsahem například 40 mg CBN v jednom bonbonu.</li>
+                    <li>Existují i zahraniční značky nabízející CBD/CBN gummies, někdy i s melatoninem (ty ale na českém trhu nemusí být tak běžné).</li>
+                </ul>
+            </div>
+            
+            <div class="supplement-card">
+                <h4>💊 Kapsle</h4>
+                <p>Diskrétní a přesné dávkování. Například:</p>
+                <ul>
+                    <li><strong>Cibdol "Stay Asleep" kapsle:</strong> Každá kapsle obsahuje například 12,5 mg CBN + 12,5 mg CBD, doplněné extraktem z chmele a griffonie (5-HTP).</li>
+                    <li>Jiné kombinace mohou zahrnovat CBN+CBC+CBD.</li>
+                </ul>
+            </div>
+            <div class="personal-tip">
+                <p>Při výběru vždy dbej na kvalitu, transparentnost výrobce (laboratorní testy) a začínej s nižší dávkou. Formu si vyber podle toho, co je Ti nejpříjemnější.</p>
             </div>
         </section>
 
         <section id="vyhody-a-tipy">
-            <h2>Co Ti CBN může přinést a pár tipů navíc</h2>
+            <h2>Co Ti CBN může přinést a pár tipů navíc 🌟</h2>
             <p>CBN si získává oblibu z dobrých důvodů. Pojďme se podívat na některé z jeho potenciálních přínosů a na co si dát pozor.</p>
 
             <h3>Možné pozitivní účinky:</h3>
             <ul>
-                <li>Podpora klidnějšího usínání a hlubšího spánku.</li>
-                <li>Pomoc při uvolnění a snížení pocitu napětí před spaním.</li>
-                <li>Je to přírodní alternativa, která není primárně psychoaktivní.</li>
-                <li>Může přispět k celkové relaxaci.</li>
+                <li>Podpora klidnějšího usínání a hlubšího, méně přerušovaného spánku.</li>
+                <li>Pomoc při uvolnění a snížení pocitu napětí či stresu před spaním.</li>
+                <li>Je to přírodní alternativa, která není primárně psychoaktivní (ve srovnání s THC).</li>
+                <li>Může přispět k celkové relaxaci a pocitu pohody.</li>
+                <li>Některé studie naznačují i další potenciál (analgetické, protizánětlivé účinky), ale to je spíše v rané fázi výzkumu.</li>
             </ul>
 
             <h3>Na co je dobré myslet:</h3>
             <ul>
-                <li><strong>Ospalost:</strong> To je u přípravku na spaní vlastně cíl, ale je s tím třeba počítat, zvlášť pokud bys ho užila přes den nebo ve větší dávce.</li>
+                <li><strong>Ospalost:</strong> To je u přípravku na spaní vlastně cíl, ale je s tím třeba počítat. CBN užívej pouze večer a neřiď po něm.</li>
                 <li><strong>Sucho v ústech:</strong> Může se objevit, tak měj po ruce sklenici vody.</li>
-                <li><strong>Interakce s léky:</strong> Pokud užíváš nějaké léky pravidelně, je vždy dobré se poradit s lékařem nebo lékárníkem, než začneš s CBN. Je to důležité, protože kanabinoidy mohou ovlivnit, jak některé léky v těle fungují.</li>
+                <li><strong>Interakce s léky:</strong> Pokud užíváš nějaké léky pravidelně (zejména ty, které ovlivňují centrální nervový systém, nebo mají varování ohledně grapefruitu), je vždy dobré se poradit s lékařem nebo lékárníkem, než začneš s CBN. Kanabinoidy mohou ovlivnit metabolismus některých léků.</li>
                 <li><strong>Kvalita produktu:</strong> Vybírej pečlivě, o tom si povíme více níže.</li>
+                <li><strong>Individuální reakce:</strong> Každé tělo je jiné, účinek se může lišit.</li>
             </ul>
         </section>
 
         <section id="vyber-produktu">
-            <h2>Jak vybrat kvalitní CBN produkt?</h2>
+            <h2>Jak vybrat kvalitní CBN produkt? ✅</h2>
             <p>Kvalita je klíčová. Na trhu je spousta produktů, a tak je dobré vědět, na co se zaměřit:</p>
             <ul>
-                <li><strong>Hledej certifikáty (CoA):</strong> Seriózní výrobci nechávají své produkty testovat v nezávislých laboratořích. Tento "Certifikát o analýze" Ti řekne, kolik CBN (a případně dalších látek) produkt obsahuje a zda je bez škodlivin (jako jsou těžké kovy nebo pesticidy).</li>
+                <li><strong>Hledej certifikáty (CoA - Certificate of Analysis):</strong> Seriózní výrobci nechávají své produkty testovat v nezávislých laboratořích. Tento "Certifikát o analýze" Ti řekne, kolik CBN (a případně dalších látek jako CBD, THC) produkt skutečně obsahuje a zda je bez škodlivin (jako jsou těžké kovy, pesticidy, rozpouštědla).</li>
+                <li><strong>Obsah THC:</strong> Produkt by měl splňovat legální limit THC (v ČR do 1 %). Některé produkty jsou zcela bez THC ("THC-free" nebo "broad spectrum" bez THC).</li>
                 <li><strong>Původ konopí:</strong> Ideální je konopí pěstované ekologicky, bez zbytečné chemie.</li>
-                <li><strong>Metoda extrakce:</strong> CO2 extrakce je považována za šetrnou a čistou metodu.</li>
-                <li><strong>Jasné složení:</strong> Měla bys přesně vědět, co produkt obsahuje, včetně nosného oleje (např. MCT, konopný).</li>
-                <li><strong>Recenze a pověst značky:</strong> Zkušenosti ostatních a důvěryhodnost výrobce mohou hodně napovědět.</li>
+                <li><strong>Metoda extrakce:</strong> CO2 extrakce je považována za šetrnou a čistou metodu získávání kanabinoidů.</li>
+                <li><strong>Jasné složení:</strong> Měla bys přesně vědět, co produkt obsahuje, včetně nosného oleje (např. MCT, konopný, olivový) a dalších přidaných látek.</li>
+                <li><strong>Recenze a pověst značky:</strong> Zkušenosti ostatních uživatelů a důvěryhodnost výrobce mohou hodně napovědět. Hledej transparentní značky.</li>
             </ul>
+        </section>
+
+        <section id="legality-cz">
+            <h2>Je CBN v České republice legální? 📜</h2>
+            <p>Dobrá zpráva je, že ano, CBN je v České republice za určitých podmínek legální a dostupné.</p>
+            <ul>
+                <li><strong>Není na seznamu zakázaných látek:</strong> CBN samo o sobě není uvedeno na seznamu kontrolovaných omamných či psychotropních látek.</li>
+                <li><strong>Limit THC je klíčový:</strong> Podmínkou legálnosti je, aby produkty s CBN byly získány z technického konopí a obsahovaly <strong>méně než 1,0 % THC</strong>. Česká legislativa od roku 2022 umožňuje v konopných extraktech tento vyšší limit THC (dříve to bylo 0,3 %). Většina kvalitních výrobců tento limit bez problémů splňuje, a mnoho produktů je dokonce zcela bez THC.</li>
+                <li><strong>Doplňky stravy:</strong> Perorální CBN přípravky spadají pod režim doplňků stravy. To znamená, že výrobci nesmí uvádět nepovolená zdravotní tvrzení (např. že CBN léčí nespavost). Mohou ale popisovat obecnější přínosy, jako je podpora relaxace nebo lepšího spánku.</li>
+                <li><strong>Kontrola kvality je na Tobě:</strong> Protože trh s kanabinoidy není tak přísně regulován jako léky, je důležité vybírat produkty od ověřených výrobců, kteří poskytují laboratorní testy. To Ti dá jistotu o čistotě a obsahu účinných látek a minimalizuje riziko kontaminace nadlimitním THC nebo jinými nežádoucími látkami.</li>
+                <li><strong>Cestování:</strong> Při cestování do zahraničí si vždy ověř místní zákony, protože postoj k CBN (jako derivátu THC) se může v různých zemích lišit.</li>
+            </ul>
+            <div class="intro-box">
+                <p><strong>Shrnutí:</strong> V Česku si můžeš CBN produkty legálně pořídit, pokud splňují limit THC. Je to zajímavá (polo)novinka pro přirozenou podporu spánku. Vždy ale dbej na výběr kvalitního a ověřeného produktu.</p>
+            </div>
         </section>
 
         <footer>
@@ -400,7 +513,7 @@
             const navbarHeight = navbar.offsetHeight;
 
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - navbarHeight - 60; 
+                const sectionTop = section.offsetTop - navbarHeight - 80; /* Increased offset for better trigger point */
                 if (pageYOffset >= sectionTop) {
                     current = section.getAttribute('id');
                 }
@@ -416,12 +529,7 @@
             });
             
             if (!anyLinkActive && navLinks.length > 0) {
-                 // Pokud není žádná sekce přesně v "targetu", ale jsme někde na stránce,
-                 // můžeme zkusit nechat aktivní první odkaz, pokud jsme úplně nahoře,
-                 // nebo poslední aktivní, pokud by se detekce minula.
-                 // Pro jednoduchost, pokud nic není aktivní a nejsme úplně nahoře, můžeme nechat default.
-                 // Pokud jsme úplně nahoře (pageYOffset blízko 0), aktivujeme první.
-                if (pageYOffset < navbarHeight) { // Heuristika pro horní část stránky
+                if (pageYOffset < sections[0].offsetTop - navbarHeight - 80) { 
                     navLinks[0].classList.add('active');
                 }
             }
@@ -430,15 +538,15 @@
         document.addEventListener('DOMContentLoaded', () => {
             const navLinks = document.querySelectorAll('nav a');
             if (navLinks.length > 0) {
-                // Inicializace: první odkaz aktivní nebo podle aktuální pozice
                 let current = '';
                 const sections = document.querySelectorAll('section');
                 const navbar = document.getElementById('navbar');
                 if (!navbar) return;
                 const navbarHeight = navbar.offsetHeight;
 
+                // Initial check on page load
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop - navbarHeight - 60; 
+                    const sectionTop = section.offsetTop - navbarHeight - 80; 
                     if (pageYOffset >= sectionTop) {
                         current = section.getAttribute('id');
                     }
@@ -456,8 +564,13 @@
                     });
                 }
                 
+                // If no section is "current" (e.g. at the very top or between sections), activate the first link
                 if (!initialActiveSet) {
                     navLinks[0].classList.add('active');
+                     // Remove active from others just in case
+                    for(let i = 1; i < navLinks.length; i++) {
+                        navLinks[i].classList.remove('active');
+                    }
                 }
             }
         });
